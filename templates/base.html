@@ -1,0 +1,36 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
+    {% if title %}
+      <title>{{ title }} - App1</title>
+      {% else %}
+      <title>Welcome</title>
+      {% endif %}
+  </head>
+    <body>
+    <!-- ==============Navigation Items================= -->
+    <div class="topnav">
+        <a href="{{ url_for('show') }}">Show All the information</a>
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('Add') }}">Add Information</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('index') }}">Home</a>
+    </div>
+
+    <section>
+        <article>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+        </article>
+    </section>
+    </body>
+</html>

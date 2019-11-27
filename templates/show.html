@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #6BA8A9;
+}
+</style>
+<h1>Database Information</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Phonenumber</th>
+  </tr>
+    {% for r in rows %}
+  <tr>
+    <td>{{r['username']}}</td>
+    <td>{{r['email']}}</td>
+    <td>{{r['phoneno']}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+

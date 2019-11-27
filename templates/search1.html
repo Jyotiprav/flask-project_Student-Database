@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Search Result</h1>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Phonenumber</th>
+  </tr>
+    <tr>
+    <td>{{r['username']}}</td>
+    <td>{{r['email']}}</td>
+    <td>{{r['phoneno']}}</td>
+  </tr>
+    </table>
+{% endblock %}

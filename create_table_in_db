@@ -1,0 +1,22 @@
+#Create database file login_db with following commands:
+import sqlite3
+
+conn = sqlite3.connect('login_db.db')
+print ("Opened database successfully")
+
+conn.execute('CREATE TABLE login (username TEXT, password TEXT)')
+print("Table created successfully")
+conn.close()
+#------------------------------------#
+#     Check the values in database:
+#------------------------------------#
+con = sql.connect("login_db.db")
+con.row_factory = sql.Row
+
+cur = con.cursor()
+cur.execute("select * from login")
+
+rows = cur.fetchall()
+for r in rows:
+    print(r['username'], r['password'])
+
